@@ -10,7 +10,7 @@ const _transporter = nodemailer.createTransport({
 
 export const sendMail = (options) => {
     options.from = options.from || process.env.GMAIL_USER;
-    options.to = process.env.GMAIL_USER;
+    options.to = process.env.CONTACT || process.env.GMAIL_USER;
     _transporter.sendMail(options, (error, info) => {
         if (error) {
             console.log(error);

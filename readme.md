@@ -4,6 +4,7 @@ This is a simple Express and Node.js app that allows users to submit a form and 
 
 - `GMAIL_USER`: The email address to be used for sending emails.
 - `GMAIL_PASS`: The password for the email address.
+- `CONTACT`: The email address to which the emails will be sent. If not specified, the email will be sent to the email address specified in `GMAIL_USER`.
 - `PORT`: The port on which the server will run.
 
 ### Data validation

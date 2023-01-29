@@ -19,13 +19,13 @@ export default (app, path) => {
                 const {path, message} = details[i];
                 errors[path] = message;
             }
-            res.status(400).json({msg: errors}).end();
+            res.status(400).json(errors).end();
             return;
         }
         sendMail({
             subject: 'RESUME: Message from ' + email,
             text: message + '\r\n\r\n' + name
         });
-        res.status(200).json({msg: 'OK'}).end();
+        res.status(200).json('OK').end();
     });
 }

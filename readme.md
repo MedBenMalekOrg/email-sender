@@ -14,27 +14,31 @@ requires a `.env` file with the following variables:
 
 This app uses [Joi](https://hapi.dev/module/joi/) to validate the data received from the form submission before sending
 the email, making sure that the required fields are present and in the correct format.
-You can use Joi to create a schema for the form fields, such as the sender's email, name, subject, and message. Then,
-you can use the `validate()` function provided by Joi to validate the data against the schema. If the data is valid, it
-can proceed to send the email. If the data is not valid, you can return an error message to the user.
 
 ## Getting Started
 
 1. Clone the repository to your local machine.
-2. Run `npm install` to install the required dependencies including `@hapi/joi`.
+2. Run `npm install` to install the required dependencies.
 3. Create a `.env` file in the root directory of the project and add the necessary variables.
 4. Run `npm start` to start the server.
 5. The app will be running on the port specified in the `.env` file.
 
 ## Notes
 
-- This app only supports Gmail for sending emails.
+- This app only supports Gmail for sending emails, more email providers will be added.
 - Make sure to use an email address that has access to less secure apps, otherwise the email sending will fail.
 
 ## Security
 
 The app uses JSON Web Token (JWT) to authenticate requests, a secret key is required which should be passed as
 JWT_SECRET in the .env file. The token is valid for 15 minutes only, after that you should request a new one.
+
+#### Recommendations:
+
+- CORS: Use Cross-Origin Resource Sharing (CORS) to restrict access to the API from specific domains. This can help
+  ensure that only requests from your resume application are accepted.
+- IP whitelisting: Configure your server to only accept requests from a specific, authorized IP address or range of
+  addresses. This can help ensure that only requests from known application are accepted.
 
 ## API
 

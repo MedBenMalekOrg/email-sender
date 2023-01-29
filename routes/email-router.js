@@ -23,8 +23,7 @@ export default (app, path) => {
             return;
         }
         sendMail({
-            to: email,
-            subject: 'RESUME: Message from ' + name,
+            subject: 'RESUME: Message from ' + email,
             text: message + '\r\n\r\n' + name
         });
         res.status(200).json({msg: 'OK'}).end();

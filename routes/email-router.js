@@ -3,7 +3,7 @@ import Joi from 'joi';
 
 const emailSchema = Joi.object({
     email: Joi.string().email().required(),
-    name: Joi.string().alphanum().min(3).max(30).trim().required(),
+    name: Joi.string().min(3).max(30).trim().required(),
     message: Joi.string().min(3).max(500).trim().required()
 });
 

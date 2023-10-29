@@ -22,7 +22,13 @@ jobs:
         run: docker login -u ${{ secrets.HARBOR_USERNAME }} -p ${{ secrets.HARBOR_PASSWORD }} ${{ secrets.HARBOR_REGISTRY_URL }}
 
       - name: Build Docker Image
-        run: docker build -t ${{ secrets.HARBOR_REGISTRY_URL }}/personal/email-app:${{ env.VERSION }} --build-arg GMAIL_USER=${{ secrets.GMAIL_USER }} --build-arg GMAIL_PASS=${{ secrets.GMAIL_PASS }} --build-arg CONTACT=${{ secrets.CONTACT }} --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} --build-arg PORT=${{ secrets.PORT }} .
+        run: docker build -t ${{ secrets.HARBOR_REGISTRY_URL }}/personal/email-app:${{ env.VERSION }} \
+            --build-arg GMAIL_USER=${{ secrets.GMAIL_USER }} \
+            --build-arg GMAIL_PASS=${{ secrets.GMAIL_PASS }} \
+            --build-arg CONTACT=${{ secrets.CONTACT }} \
+            --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
+            --build-arg PORT=${{ secrets.PORT }} \
+            .
 
       - name: Push Docker Image
         run: docker push ${{ secrets.HARBOR_REGISTRY_URL }}/personal/email-app:${{ env.VERSION }}

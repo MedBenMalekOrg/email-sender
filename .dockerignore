@@ -1,0 +1,23 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build artifacts
+dist/
+.env
+.github/
+
+# Ignore log files and temporary files
+*.log
+.tmp/
+
+# Ignore editor/IDE-specific files and directories
+.vscode/
+.idea/
+
+# Ignore Git-related files (if your project is in a Git repository)
+.git/
+.gitignore
+
+# Ignore backup files and cache directories
+*.bak
+cache/

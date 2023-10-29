@@ -1,0 +1,20 @@
+FROM --platform=linux/amd64 oven/bun:latest
+WORKDIR /app
+COPY package*.json ./
+RUN bun install
+
+ARG GMAIL_USER
+ARG GMAIL_PASS
+ARG CONTACT
+ARG JWT_SECRET
+
+ENV GMAIL_USER=${GMAIL_USER}
+ENV GMAIL_PASS=${GMAIL_PASS}
+ENV CONTACT=${CONTACT}
+ENV PORT=${PORT}
+ENV JWT_SECRET=${JWT_SECRET}
+
+COPY . .
+
+EXPOSE 4000
+CMD ["bun", "run", "start"]

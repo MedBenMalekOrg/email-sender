@@ -8,7 +8,7 @@ config();
     const app = express();
     await expressApp(app);
 
-    app.listen(process.env.PORT, () => console.log(`Server up at ${process.env.PORT}`))
+    app.listen(process.env.PORT || 4000, () => console.log(`Server up at ${process.env.PORT}`))
         .on('error', err => {
             console.log(err);
             process.exit();

@@ -28,14 +28,7 @@ jobs:
           CONTACT: ${{ secrets.CONTACT }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
           PORT: ${{ secrets.PORT }}
-        run: |
-          docker build -t ${{ secrets.HARBOR_REGISTRY_URL }}/personal/email-app:${{ env.VERSION }} \
-            --build-arg GMAIL_USER=${GMAIL_USER} \
-            --build-arg GMAIL_PASS=${GMAIL_PASS} \
-            --build-arg CONTACT=${CONTACT} \
-            --build-arg JWT_SECRET=${JWT_SECRET} \
-            --build-arg PORT=${PORT} \
-            .
+        run: docker build -t ${{ secrets.HARBOR_REGISTRY_URL }}/personal/email-app:${{ env.VERSION }} .
 
   deploy:
     runs-on: self-hosted
